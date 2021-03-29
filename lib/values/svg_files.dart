@@ -1,0 +1,33 @@
+class MySvgFiles {
+  static const String SplashLogo = 'assets/images/splashlogo.svg';
+  static const String onBoardingRestSVG = 'assets/images/personRest.svg';
+  static const String dottedSVG = 'assets/images/dotsGroup.svg';
+  static const String yellowPlayButtonSVG = 'assets/images/yellow_play.svg';
+  static const String OceanSVG = 'assets/images/ocean.svg';
+  static const String birdCrySVG = 'assets/images/birdcry.svg';
+  static const String fanSVG = 'assets/images/fan.svg';
+  static const String heartSVG = 'assets/images/heart.svg';
+  static const String fountainSVG = 'assets/images/fountain.svg';
+  static const String oceanRabbitSVG = 'assets/images/ocenRabit.svg';
+  static const String contactSupportSVG = 'assets/images/contactSupport.svg';
+  static const String planeSVG = 'assets/images/plane.svg';
+  static const String puppySVG = 'assets/images/puppy.svg';
+  static const String rainSVG = 'assets/images/rain.svg';
+  static const String resetSettingsSVG = 'assets/images/resetSettings.svg';
+  static const String reviewSvg = 'assets/images/review.svg';
+  static const String subscribeSVG = 'assets/images/subscribe.svg';
+  static const String treeSVG = 'assets/images/tree.svg';
+  static const String walletSVG = 'assets/images/wallet.svg';
+  static const String playSVG = 'assets/images/playsvg.svg';
+  static const String lockedSVG = 'assets/images/locked.svg';
+  static const String searchSVG = 'assets/images/loupe.svg';
+  static const String musicSVG = 'assets/images/music.svg';
+  static const String settingsSVG = 'assets/images/settings.svg';
+  static const String yellowPauseButtonSVG = 'assets/images/pause.svg';
+  static const String loginSVG = 'assets/images/login.svg';
+  static const String ChatSVG = 'assets/images/chat.svg';
+  static const String SignUpSVG = 'assets/images/signup.svg';
+  static const String FacebookSVG = 'assets/images/facebook.svg';
+  static const String TwitterSVG = 'assets/images/twitter.svg';
+  static const String GoogleSVG = 'assets/images/google-plus.svg';
+}
