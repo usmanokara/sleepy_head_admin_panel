@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 import 'package:sleepy_head_panel/constants/constants.dart';
 import 'package:sleepy_head_panel/models/category_model.dart';
 import 'package:sleepy_head_panel/models/songs.dart';
@@ -22,6 +24,19 @@ class SongsUtils {
     );
 
     return response;
+  }
+
+  Future<void> uploadFile(dynamic path) async {
+    var postUri = Uri.parse(_baseUrl + "Songs");
+    var request = new http.MultipartRequest("POST", postUri);
+    request.fields['musicFiles'] = 'blah';
+    request.files.add(new http.MultipartFile.fromBytes(
+      'file',
+      await File.fromRawPath(path.readAsBytesSync()).readAsBytes(),
+    ));
+    request.send().then((response) {
+      if (response.statusCode == 200) print("Uploaded!");
+    });
   }
 
   static Future<Response> addToCategory(CategoryModel category) async {

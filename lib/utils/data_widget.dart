@@ -1,8 +1,5 @@
 import 'dart:ui';
-
-import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sleepy_head_panel/constants/static_data.dart';
 import 'package:sleepy_head_panel/values/colors.dart';
 
@@ -295,8 +292,8 @@ class _DataWidgetState extends State<DataWidget> {
                                                     : 5),
                                             Expanded(
                                               child: Text(
-                                                StaticData.apiData[index]
-                                                    .musicFiles['name'],
+                                                StaticData
+                                                    .apiData[index].songName,
                                                 maxLines: 1,
                                               ),
                                             ),
@@ -393,7 +390,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   @override
   void initState() {
     // TODO: implement initState
-    StaticData.audioPlayer = new AssetsAudioPlayer();
+    // StaticData.audioPlayer = new AssetsAudioPlayer();
     super.initState();
   }
 
@@ -523,23 +520,23 @@ class _HomeWidgetState extends State<HomeWidget> {
                                             InkWell(
                                               onTap: () async {
                                                 //
-                                                print(index);
-                                                await StaticData.audioPlayer
-                                                    .stop();
-                                                StaticData.audioPlayer
-                                                    .dispose();
-                                                StaticData.audioPlayer =
-                                                    new AssetsAudioPlayer();
-                                                await StaticData.audioPlayer
-                                                    .open(Audio.network(
-                                                        StaticData
-                                                                .apiData[index]
-                                                                .musicFiles[
-                                                            'url']));
-                                                setState(() {
-                                                  StaticData.state =
-                                                      PlayerState.play;
-                                                });
+                                                // print(index);
+                                                // await StaticData.audioPlayer
+                                                //     .stop();
+                                                // StaticData.audioPlayer
+                                                //     .dispose();
+                                                // StaticData.audioPlayer =
+                                                //     new AssetsAudioPlayer();
+                                                // await StaticData.audioPlayer
+                                                //     .open(Audio.network(
+                                                //         StaticData
+                                                //                 .apiData[index]
+                                                //                 .musicFiles[
+                                                //             'url']));
+                                                // setState(() {
+                                                //   StaticData.state =
+                                                //       PlayerState.play;
+                                                // });
                                               },
                                               child: Icon(
                                                 Icons.play_circle_outline_sharp,

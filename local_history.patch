@@ -1,0 +1,128 @@
+Index: lib/utils/editFileDialog.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lib/utils/editFileDialog.dart	(date 1617086403010)
++++ lib/utils/editFileDialog.dart	(date 1617086403010)
+@@ -1,10 +1,9 @@
+ // ignore: avoid_web_libraries_in_flutter
+ import 'dart:html';
+-import 'dart:io';
+-
+-import 'package:file_picker/file_picker.dart';
+ import 'package:flutter/cupertino.dart';
+ import 'package:flutter/material.dart';
++import 'package:image_picker_web/image_picker_web.dart';
++import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+ import 'package:sleepy_head_panel/models/category_model.dart';
+ import 'package:sleepy_head_panel/models/songs.dart';
+ import 'package:sleepy_head_panel/network_utils/song_utils.dart';
+@@ -13,14 +12,11 @@
+ import 'package:sleepy_head_panel/values/references.dart';
+ 
+ import '../constants/static_data.dart';
+-import '../constants/static_data.dart';
+-import '../constants/static_data.dart';
+ 
+ TextEditingController nameController = new TextEditingController();
+ TextEditingController categoryController = new TextEditingController();
+ TextEditingController durationController = new TextEditingController();
+ TextEditingController fileController = new TextEditingController();
+-PlatformFile audioFile;
+ 
+ // void uploadFile1() async {
+ //   print('Audio File: ${audioFile.name}');
+@@ -44,22 +40,28 @@
+ //     }
+ //   });
+ // }
+-
++// Future<File> _imageFile;
++var img = [];
+ void uploadFile() async {
+-  FilePickerResult result = await FilePicker.platform.pickFiles(
+-    type: FileType.custom,
+-    allowedExtensions: ['mp3'],
++  img = await ImagePickerWeb.getImage(
++    outputType: ImageType.bytes,
+   );
+-
+-  if (result != null) {
+-    audioFile = result.files[0];
+-    print('Audio File is: $audioFile');
+-    fileController.text = audioFile.name;
+-  } else {
+-    // User canceled the picker
+-
+-  }
++  print('img is ${img.toString()}');
+ }
++
++// final result = await FilePicker.platform.pickFiles(
++//   type: FileType.custom,
++//   allowedExtensions: ['mp3'],
++// );
++//
++// if (result != null) {
++//  ;
++//   print('Audio File is: ${audioFile.path}');
++//   fileController.text = audioFile.name;
++// } else {
++//   // User canceled the picker
++//
++// }
+ 
+ showAlertDialog(BuildContext context, Songs model) {
+   Widget cancelButton = MaterialButton(
+@@ -160,23 +162,23 @@
+           pageBuilder: (BuildContext context, _, __) =>
+               AndroidProgressModel()));
+ 
+-      await SongsUtils().uploadFile(audioFile);
++      // await SongsUtils().uploadFile(audioFile);
+ 
+       Songs updateSong = Songs(
+         duration: durationController.text.toString(),
+         songName: nameController.text.toString(),
+         songCategory: categoryController.text.toString(),
+         objectId: model.objectId,
+-        musicFiles: {
+-          '__type': 'File',
+-          'name': audioFile.name,
+-          'url': audioFile.path,
+-        },
++        // musicFiles: {
++        //   '__type': 'File',
++        //   'name': audioFile.name,
++        //   'url': audioFile.path,
++        // },
+       );
+       SongsUtils.updateTodo(updateSong).whenComplete(() => {
+             Navigator.of(context).pop(),
+           });
+-      print('Audio File: ${audioFile.name}');
++      // print('Audio File: ${audioFile.name}');
+     },
+   );
+ 
+@@ -510,17 +512,13 @@
+         duration: duration,
+         songName: name.toString(),
+         songCategory: category,
+-        musicFiles: {
+-          '__type': 'File',
+-          'name': audioFile.name,
+-          'url': audioFile.bytes,
+-        },
++        // musicFiles:ParseFile(,name: 'audio'),
+       );
+ 
+       SongsUtils.addTodo(addSong).whenComplete(() => {
+             Navigator.of(context).pop(),
+           });
+-      print('Audio File: ${audioFile.name}');
++      // print('Audio File: ${audioFile.name}');
+     },
+   );
+ 

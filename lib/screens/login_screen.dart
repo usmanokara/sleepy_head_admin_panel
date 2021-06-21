@@ -144,7 +144,6 @@ class _LoginScreenState extends State<LoginScreen> {
               pageBuilder: (BuildContext context, _, __) =>
                   AndroidProgressModel()));
           Future.delayed(Duration(seconds: 1));
-          Navigator.of(context).pop();
 
           if (doemail.isEmpty || doemail == null) {
             showSuccess('Sleepy Head', 'Email cannot be null or empty');
@@ -159,7 +158,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
             return;
           }
-          Navigator.of(context).pop();
 
           doemail == 'calmingaudio@gmail.com' && dopassword == 'c@l@iming@udio'
               ? Navigator.pushNamedAndRemoveUntil(
@@ -169,7 +167,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   doemail == 'calmingaudio@gmail.com'
                       ? 'Wrong password'
                       : 'Wrong email');
-          Navigator.of(context).pop();
         },
         child: Center(
           child: Text(

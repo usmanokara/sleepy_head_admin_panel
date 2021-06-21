@@ -12,14 +12,14 @@ class Songs {
   String songCategory;
   String duration;
   bool isLiked;
-  dynamic musicFiles;
+  // dynamic musicFiles;
   Songs({
     this.objectId,
     this.songName,
     this.songCategory,
     this.duration,
     this.isLiked,
-    this.musicFiles,
+    // this.musicFiles,
   });
 
   factory Songs.fromJson(Map<String, dynamic> json) => Songs(
@@ -28,7 +28,7 @@ class Songs {
         songCategory: json["song_category"],
         duration: json["duration"],
         isLiked: json["is_favorite"],
-        musicFiles: json["musicFiles"],
+        // musicFiles: json["musicFiles"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -37,6 +37,6 @@ class Songs {
         "song_category": songCategory,
         "duration": duration,
         "is_favorite": isLiked,
-        "musicFiles": musicFiles,
+        // "musicFiles": musicFiles,
       };
 }
